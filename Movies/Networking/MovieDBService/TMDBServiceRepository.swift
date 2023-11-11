@@ -11,5 +11,5 @@ protocol TMDBServiceRepository {
     var requestLoader: APIRequestLoading { get }
     
     func loadMovies() async throws -> [APIMovie]
-    func loadMovieDetail(movieId: String) async throws -> APIMovieDetails
+    func loadMovieDetail(movieId: Int) async throws -> APIMovieDetails
 }
