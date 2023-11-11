@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import TMDBService
 
 @MainActor
 class AppDependencyContainer {
@@ -14,7 +15,7 @@ class AppDependencyContainer {
     }
     
     func makeMoviesViewModel() -> MoviesViewModel {
-        MoviesViewModel()
+        MoviesViewModel(moviesService: TMDBService())
     }
     
     func makeMoviesViewController() -> MoviesViewController {
@@ -22,7 +23,7 @@ class AppDependencyContainer {
     }
     
     func makeMovieDetailsViewModel(movieId: Int) -> MovieDetailsViewModel {
-        MovieDetailsViewModel(movieId: movieId)
+        MovieDetailsViewModel(movieId: movieId, moviesService: TMDBService())
     }
     
     func makeMovieDetailsViewController(movieId: Int) -> MovieDetailsViewController {

@@ -8,7 +8,7 @@
 import Foundation
 import NetworkingService
 
-protocol TMDBServiceRepository {
+public protocol TMDBServiceRepository {
     var requestLoader: APIRequestLoading { get }
     
     func loadMovies() async throws -> [APIMovie]

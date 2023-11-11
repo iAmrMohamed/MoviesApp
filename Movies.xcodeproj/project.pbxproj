@@ -39,6 +39,9 @@
 		2D775F7B2AFF794800AC0175 /* NetworkingService.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D775F7A2AFF794800AC0175 /* NetworkingService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D775F7E2AFF794800AC0175 /* NetworkingService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D775F782AFF794800AC0175 /* NetworkingService.framework */; };
 		2D775F7F2AFF794800AC0175 /* NetworkingService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D775F782AFF794800AC0175 /* NetworkingService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2D775F8C2AFF7AEB00AC0175 /* TMDBService.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D775F8B2AFF7AEB00AC0175 /* TMDBService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D775F8F2AFF7AEB00AC0175 /* TMDBService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D775F892AFF7AEB00AC0175 /* TMDBService.framework */; };
+		2D775F902AFF7AEB00AC0175 /* TMDBService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D775F892AFF7AEB00AC0175 /* TMDBService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2D775F772AFF794800AC0175;
 			remoteInfo = NetworkingService;
+		};
+		2D775F8D2AFF7AEB00AC0175 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D3137692AFE0A5200AF9277 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D775F882AFF7AEB00AC0175;
+			remoteInfo = TMDBService;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -59,6 +69,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				2D775F7F2AFF794800AC0175 /* NetworkingService.framework in Embed Frameworks */,
+				2D775F902AFF7AEB00AC0175 /* TMDBService.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +110,8 @@
 		2D3137D82AFEC64F00AF9277 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		2D775F782AFF794800AC0175 /* NetworkingService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D775F7A2AFF794800AC0175 /* NetworkingService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingService.h; sourceTree = "<group>"; };
+		2D775F892AFF7AEB00AC0175 /* TMDBService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMDBService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D775F8B2AFF7AEB00AC0175 /* TMDBService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMDBService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +120,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D775F7E2AFF794800AC0175 /* NetworkingService.framework in Frameworks */,
+				2D775F8F2AFF7AEB00AC0175 /* TMDBService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2D775F752AFF794800AC0175 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D775F862AFF7AEB00AC0175 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -124,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				2D3137732AFE0A5200AF9277 /* Movies */,
+				2D775F8A2AFF7AEB00AC0175 /* TMDBService */,
 				2D775F792AFF794800AC0175 /* NetworkingService */,
 				2D3137722AFE0A5200AF9277 /* Products */,
 			);
@@ -134,6 +156,7 @@
 			children = (
 				2D3137712AFE0A5200AF9277 /* Movies.app */,
 				2D775F782AFF794800AC0175 /* NetworkingService.framework */,
+				2D775F892AFF7AEB00AC0175 /* TMDBService.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,7 +168,6 @@
 				2D3137762AFE0A5200AF9277 /* SceneDelegate.swift */,
 				2D3137892AFE0B0800AF9277 /* AppDependencyContainer.swift */,
 				2D31378B2AFE0B1B00AF9277 /* App */,
-				2D3137BB2AFE2DB100AF9277 /* Networking */,
 				2D3137882AFE0A7A00AF9277 /* Support */,
 			);
 			path = Movies;
@@ -261,15 +283,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2D3137BB2AFE2DB100AF9277 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				2D3137CA2AFE554600AF9277 /* Models */,
-				2D3137C52AFE2F9800AF9277 /* MovieDBService */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
 		2D3137BE2AFE2EA400AF9277 /* Session */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,14 +292,14 @@
 			path = Session;
 			sourceTree = "<group>";
 		};
-		2D3137C52AFE2F9800AF9277 /* MovieDBService */ = {
+		2D3137C52AFE2F9800AF9277 /* TMDBService */ = {
 			isa = PBXGroup;
 			children = (
 				2D3137C12AFE2F6200AF9277 /* TMDBAPI.swift */,
 				2D3137C32AFE2F9000AF9277 /* TMDBService.swift */,
 				2D3137BC2AFE2E5400AF9277 /* TMDBServiceRepository.swift */,
 			);
-			path = MovieDBService;
+			path = TMDBService;
 			sourceTree = "<group>";
 		};
 		2D3137CA2AFE554600AF9277 /* Models */ = {
@@ -335,6 +348,16 @@
 			path = NetworkingService;
 			sourceTree = "<group>";
 		};
+		2D775F8A2AFF7AEB00AC0175 /* TMDBService */ = {
+			isa = PBXGroup;
+			children = (
+				2D775F8B2AFF7AEB00AC0175 /* TMDBService.h */,
+				2D3137CA2AFE554600AF9277 /* Models */,
+				2D3137C52AFE2F9800AF9277 /* TMDBService */,
+			);
+			path = TMDBService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -343,6 +366,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D775F7B2AFF794800AC0175 /* NetworkingService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D775F842AFF7AEB00AC0175 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D775F8C2AFF7AEB00AC0175 /* TMDBService.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +393,7 @@
 			);
 			dependencies = (
 				2D775F7D2AFF794800AC0175 /* PBXTargetDependency */,
+				2D775F8E2AFF7AEB00AC0175 /* PBXTargetDependency */,
 			);
 			name = Movies;
 			productName = Movies;
@@ -386,6 +418,24 @@
 			productReference = 2D775F782AFF794800AC0175 /* NetworkingService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		2D775F882AFF7AEB00AC0175 /* TMDBService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D775F912AFF7AEB00AC0175 /* Build configuration list for PBXNativeTarget "TMDBService" */;
+			buildPhases = (
+				2D775F842AFF7AEB00AC0175 /* Headers */,
+				2D775F852AFF7AEB00AC0175 /* Sources */,
+				2D775F862AFF7AEB00AC0175 /* Frameworks */,
+				2D775F872AFF7AEB00AC0175 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TMDBService;
+			productName = TMDBService;
+			productReference = 2D775F892AFF7AEB00AC0175 /* TMDBService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -400,6 +450,9 @@
 						CreatedOnToolsVersion = 15.0.1;
 					};
 					2D775F772AFF794800AC0175 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					2D775F882AFF7AEB00AC0175 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
@@ -419,6 +472,7 @@
 			targets = (
 				2D3137702AFE0A5200AF9277 /* Movies */,
 				2D775F772AFF794800AC0175 /* NetworkingService */,
+				2D775F882AFF7AEB00AC0175 /* TMDBService */,
 			);
 		};
 /* End PBXProject section */
@@ -436,6 +490,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2D775F762AFF794800AC0175 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D775F872AFF7AEB00AC0175 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -484,6 +545,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2D775F852AFF7AEB00AC0175 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -491,6 +559,11 @@
 			isa = PBXTargetDependency;
 			target = 2D775F772AFF794800AC0175 /* NetworkingService */;
 			targetProxy = 2D775F7C2AFF794800AC0175 /* PBXContainerItemProxy */;
+		};
+		2D775F8E2AFF7AEB00AC0175 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D775F882AFF7AEB00AC0175 /* TMDBService */;
+			targetProxy = 2D775F8D2AFF7AEB00AC0175 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -745,6 +818,72 @@
 			};
 			name = Release;
 		};
+		2D775F922AFF7AEB00AC0175 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iAmrMohamed.TMDBService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2D775F932AFF7AEB00AC0175 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iAmrMohamed.TMDBService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -771,6 +910,15 @@
 			buildConfigurations = (
 				2D775F812AFF794800AC0175 /* Debug */,
 				2D775F822AFF794800AC0175 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D775F912AFF7AEB00AC0175 /* Build configuration list for PBXNativeTarget "TMDBService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D775F922AFF7AEB00AC0175 /* Debug */,
+				2D775F932AFF7AEB00AC0175 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

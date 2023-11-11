@@ -8,15 +8,15 @@
 import Foundation
 import NetworkingService
 
-struct TMDBService: TMDBServiceRepository {
+public struct TMDBService: TMDBServiceRepository {
     // these are defined as variables to allow unit tests to inject them later easily
     var baseUrl: String = TMDBAPI.baseUrl
     var accessToken: String = TMDBAPI.accessToken
-    var requestLoader: APIRequestLoading = APIRequestLoader()
+    public var requestLoader: APIRequestLoading = APIRequestLoader()
 }
 
-extension TMDBService {
-    struct MoviesBody: Decodable {
+public extension TMDBService {
+    private struct MoviesBody: Decodable {
         let results: [APIMovie]
     }
     
@@ -32,7 +32,7 @@ extension TMDBService {
     }
 }
 
-extension TMDBService {
+public extension TMDBService {
     func loadMovieDetail(movieId: Int) async throws -> APIMovieDetails {
         let request = APIRequest(
             baseURL: baseUrl,

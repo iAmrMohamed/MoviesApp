@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import TMDBService
 
 class MovieDetailsViewModel {
     @Published private(set) var isLoading = false
@@ -15,8 +16,10 @@ class MovieDetailsViewModel {
     private var observers = Set<AnyCancellable>()
     
     let movieId: Int
-    init(movieId: Int) {
+    let moviesService: TMDBServiceRepository
+    init(movieId: Int, moviesService: TMDBServiceRepository) {
         self.movieId = movieId
+        self.moviesService = moviesService
     }
     
     public func loadMovieDetails() async throws {

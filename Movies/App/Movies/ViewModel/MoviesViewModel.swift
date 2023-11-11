@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import TMDBService
 
 @MainActor
 class MoviesViewModel {
@@ -17,10 +18,15 @@ class MoviesViewModel {
     
     var movieSelectionHandler: ((_ movie: MovieCellViewModel) -> Void)?
     
+    let moviesService: TMDBServiceRepository
+    init(moviesService: TMDBServiceRepository) {
+        self.moviesService = moviesService
+    }
+    
     public func loadMovies() async throws {
         isLoading = true
         
-        let movies = try await TMDBService().loadMovies().map {
+        let movies = try await moviesService.loadMovies().map {
             MovieCellViewModel(
                 id: $0.id,
                 title: $0.title,
