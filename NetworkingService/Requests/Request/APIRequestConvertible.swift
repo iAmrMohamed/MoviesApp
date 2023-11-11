@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol APIRequestConvertible {
+public protocol APIRequestConvertible {
     var path: String { get }
     var baseURL: String { get }
     var httpMethod: String { get }

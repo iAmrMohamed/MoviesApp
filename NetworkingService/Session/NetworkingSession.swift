@@ -9,7 +9,7 @@ import Foundation
 
 import Foundation
 
-protocol NetworkingSession {
+public protocol NetworkingSession {
     func data(for request: URLRequest) async throws -> (Data, URLResponse)
 }
 

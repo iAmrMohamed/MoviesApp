@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol APIRequestLoading {
+public protocol APIRequestLoading {
     var session: NetworkingSession { get set }
     func load<T: Decodable>(request: APIRequestConvertible, ofType: T.Type) async throws -> T
 }

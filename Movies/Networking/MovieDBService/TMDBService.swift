@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NetworkingService
 
 struct TMDBService: TMDBServiceRepository {
     // these are defined as variables to allow unit tests to inject them later easily

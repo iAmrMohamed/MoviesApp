@@ -9,13 +9,13 @@ import Foundation
 
 /// this is the least amount of abstraction to be made for our current use case
 /// many other fields can be introduced here like params, url encoding, httpBody data and http header fields
-struct APIRequest: APIRequestConvertible {
-    let baseURL: String
-    let path: String
-    let httpMethod: String = "GET"
-    let httpHeaderFields: [String: String]
+public struct APIRequest: APIRequestConvertible {
+    public let baseURL: String
+    public let path: String
+    public let httpMethod: String = "GET"
+    public let httpHeaderFields: [String: String]
     
-    func urlRequest() throws -> URLRequest {
+    public func urlRequest() throws -> URLRequest {
         guard let url = URL(string: baseURL + path) else {
             throw NetworkError.badURL
         }
