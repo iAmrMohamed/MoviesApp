@@ -97,7 +97,7 @@ class MoviesRootView: UIView {
 extension MoviesRootView {
     func configureCell(cell: MovieCell, with viewModel: MovieCellViewModel) {
         cell.titleLabel.text = viewModel.title
-        cell.dateLabel.text = viewModel.release_date
+        cell.dateLabel.text = viewModel.date
         
         // simple images cache
         if let image = imageCache[viewModel.id] {

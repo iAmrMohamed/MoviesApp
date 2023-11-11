@@ -42,6 +42,7 @@
 		2D775F8C2AFF7AEB00AC0175 /* TMDBService.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D775F8B2AFF7AEB00AC0175 /* TMDBService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D775F8F2AFF7AEB00AC0175 /* TMDBService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D775F892AFF7AEB00AC0175 /* TMDBService.framework */; };
 		2D775F902AFF7AEB00AC0175 /* TMDBService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D775F892AFF7AEB00AC0175 /* TMDBService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2D775F952AFF807400AC0175 /* MovieDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D775F942AFF807400AC0175 /* MovieDateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		2D775F7A2AFF794800AC0175 /* NetworkingService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingService.h; sourceTree = "<group>"; };
 		2D775F892AFF7AEB00AC0175 /* TMDBService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMDBService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D775F8B2AFF7AEB00AC0175 /* TMDBService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMDBService.h; sourceTree = "<group>"; };
+		2D775F942AFF807400AC0175 /* MovieDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				2D3137822AFE0A5300AF9277 /* Info.plist */,
 				2D31377D2AFE0A5300AF9277 /* Assets.xcassets */,
 				2D31377F2AFE0A5300AF9277 /* LaunchScreen.storyboard */,
+				2D775F962AFF810500AC0175 /* Util */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -358,6 +361,14 @@
 			path = TMDBService;
 			sourceTree = "<group>";
 		};
+		2D775F962AFF810500AC0175 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2D775F942AFF807400AC0175 /* MovieDateFormatter.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -471,8 +482,8 @@
 			projectRoot = "";
 			targets = (
 				2D3137702AFE0A5200AF9277 /* Movies */,
-				2D775F772AFF794800AC0175 /* NetworkingService */,
 				2D775F882AFF7AEB00AC0175 /* TMDBService */,
+				2D775F772AFF794800AC0175 /* NetworkingService */,
 			);
 		};
 /* End PBXProject section */
@@ -523,6 +534,7 @@
 				2D3137B82AFE1D0A00AF9277 /* MovieDetailsViewModel.swift in Sources */,
 				2D3137C92AFE520A00AF9277 /* APIMovie.swift in Sources */,
 				2D3137752AFE0A5200AF9277 /* AppDelegate.swift in Sources */,
+				2D775F952AFF807400AC0175 /* MovieDateFormatter.swift in Sources */,
 				2D3137BD2AFE2E5400AF9277 /* TMDBServiceRepository.swift in Sources */,
 				2D31378A2AFE0B0800AF9277 /* AppDependencyContainer.swift in Sources */,
 				2D3137AB2AFE191C00AF9277 /* MovieSelectionResponder.swift in Sources */,

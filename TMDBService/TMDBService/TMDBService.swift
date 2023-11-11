@@ -13,6 +13,10 @@ public struct TMDBService: TMDBServiceRepository {
     var baseUrl: String = TMDBAPI.baseUrl
     var accessToken: String = TMDBAPI.accessToken
     public var requestLoader: APIRequestLoading = APIRequestLoader()
+    
+    public var imagesBaseUrl: String {
+        TMDBAPI.imagesBaseUrl
+    }
 }
 
 public extension TMDBService {

@@ -14,9 +14,10 @@ class MovieDetailsViewModel {
     @Published private(set) var movieDetails: MovieDetails?
     
     private var observers = Set<AnyCancellable>()
+    private let movieDateFormatter = MovieDateFormatter()
     
     let movieId: Int
-    let moviesService: TMDBServiceRepository
+    private let moviesService: TMDBServiceRepository
     init(movieId: Int, moviesService: TMDBServiceRepository) {
         self.movieId = movieId
         self.moviesService = moviesService
@@ -31,8 +32,8 @@ class MovieDetailsViewModel {
             id: details.id,
             title: details.title,
             overview: details.overview,
-            release_date: details.release_date,
-            backdrop_path: details.backdrop_path
+            date: movieDateFormatter.convert(apiDate: details.release_date),
+            imagePath: moviesService.imagesBaseUrl + details.backdrop_path
         )
         
         isLoading = false

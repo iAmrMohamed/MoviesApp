@@ -48,7 +48,7 @@ class MovieDetailsRootView: UIView {
     
     private func updateViews(with details: MovieDetails) {
         titleLabel.text = details.title
-        dateLabel.text = details.release_date
+        dateLabel.text = details.date
         descriptionLabel.text = details.overview
         
         Task {

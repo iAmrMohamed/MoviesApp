@@ -11,6 +11,8 @@ import NetworkingService
 public protocol TMDBServiceRepository {
     var requestLoader: APIRequestLoading { get }
     
+    var imagesBaseUrl: String { get }
+    
     func loadMovies() async throws -> [APIMovie]
     func loadMovieDetail(movieId: Int) async throws -> APIMovieDetails
 }

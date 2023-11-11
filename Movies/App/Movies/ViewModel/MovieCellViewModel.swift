@@ -6,21 +6,18 @@
 //
 
 import Foundation
+import TMDBService
 
 struct MovieCellViewModel: Equatable, Hashable {
     let id: Int
     let title: String
-    let release_date: String
-    private let poster_path: String
+    let date: String?
+    let imagePath: String
     
-    var imagePath: String {
-        TMDBAPI.imagesBaseUrl + "/w500" + poster_path
-    }
-    
-    init(id: Int, title: String, release_date: String, poster_path: String) {
+    init(id: Int, title: String, date: String?, imagePath: String) {
         self.id = id
         self.title = title
-        self.release_date = release_date
-        self.poster_path = poster_path
+        self.date = date
+        self.imagePath = imagePath
     }
 }

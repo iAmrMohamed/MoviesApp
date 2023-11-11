@@ -18,7 +18,9 @@ class MoviesViewModel {
     
     var movieSelectionHandler: ((_ movie: MovieCellViewModel) -> Void)?
     
-    let moviesService: TMDBServiceRepository
+    private let movieDateFormatter = MovieDateFormatter()
+    
+    private let moviesService: TMDBServiceRepository
     init(moviesService: TMDBServiceRepository) {
         self.moviesService = moviesService
     }
@@ -30,8 +32,8 @@ class MoviesViewModel {
             MovieCellViewModel(
                 id: $0.id,
                 title: $0.title,
-                release_date: $0.release_date,
-                poster_path: $0.poster_path
+                date: movieDateFormatter.convert(apiDate: $0.release_date),
+                imagePath: moviesService.imagesBaseUrl + $0.poster_path
             )
         }
         
