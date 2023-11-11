@@ -14,8 +14,24 @@ class MovieDetailsViewModel {
     
     private var observers = Set<AnyCancellable>()
     
-    let movie: Movie
-    init(movie: Movie) {
-        self.movie = movie
+    let movieId: Int
+    init(movieId: Int) {
+        self.movieId = movieId
+    }
+    
+    public func loadMovieDetails() async throws {
+        isLoading = true
+        
+        let details = try await TMDBService().loadMovieDetail(movieId: movieId)
+        
+        self.movieDetails = MovieDetails(
+            id: details.id,
+            title: details.title,
+            overview: details.overview,
+            release_date: details.release_date,
+            backdrop_path: details.backdrop_path
+        )
+        
+        isLoading = false
     }
 }

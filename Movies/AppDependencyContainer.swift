@@ -21,11 +21,11 @@ class AppDependencyContainer {
         MoviesViewController(viewModel: makeMoviesViewModel())
     }
     
-    func makeMovieDetailsViewModel(movie: Movie) -> MovieDetailsViewModel {
-        MovieDetailsViewModel(movie: movie)
+    func makeMovieDetailsViewModel(movieId: Int) -> MovieDetailsViewModel {
+        MovieDetailsViewModel(movieId: movieId)
     }
     
-    func makeMovieDetailsViewController(movie: Movie) -> MovieDetailsViewController {
-        MovieDetailsViewController(viewModel: makeMovieDetailsViewModel(movie: movie))
+    func makeMovieDetailsViewController(movieId: Int) -> MovieDetailsViewController {
+        MovieDetailsViewController(viewModel: makeMovieDetailsViewModel(movieId: movieId))
     }
 }

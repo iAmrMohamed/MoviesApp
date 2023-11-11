@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MovieSelectionResponder {
-    func showMovieDetails(movie: Movie)
+    func showMovieDetails(movieId: Int)
 }

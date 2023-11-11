@@ -13,12 +13,13 @@ class MoviesRootView: UIView {
         case main
     }
     
+    private let activityIndicator = UIActivityIndicatorView()
     private let collectionView: UICollectionView
     
     private var observers = Set<AnyCancellable>()
-    private var dataSource: UICollectionViewDiffableDataSource<Section, Movie>?
+    private var dataSource: UICollectionViewDiffableDataSource<Section, MovieCellViewModel>?
     
-    private var imageCache = [String: UIImage]()
+    private var imageCache = [Int: UIImage]()
     
     private(set) var viewModel: MoviesViewModel?
     
@@ -38,6 +39,8 @@ class MoviesRootView: UIView {
     
     private func commonInit() {
         addCollectionView()
+        addActivityIndicator()
+        
         setupCollectionView()
     }
     
@@ -45,7 +48,7 @@ class MoviesRootView: UIView {
         backgroundColor = .white
         collectionView.delegate = self
         
-        let cellRegistration = UICollectionView.CellRegistration<MovieCell, Movie>(
+        let cellRegistration = UICollectionView.CellRegistration<MovieCell, MovieCellViewModel>(
             cellNib: UINib(nibName: MovieCell.reuseIdentifier, bundle: nil)
         ) { [weak self] cell, indexPath, movie in
             self?.configureCell(cell: cell, with: movie)
@@ -59,14 +62,30 @@ class MoviesRootView: UIView {
     public func setupViewModel(_ viewModel: MoviesViewModel) {
         self.viewModel = viewModel
         
-        viewModel.$movies.removeDuplicates().sink { [weak self] movies in
-            guard let self = self else { return }
-            updateMoviesSnapshot(movies: movies)
-        }.store(in: &observers)
+        viewModel
+            .$movies
+            .removeDuplicates()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] movies in
+                guard let self = self else { return }
+                updateMoviesSnapshot(movies: movies)
+            }.store(in: &observers)
+        
+        viewModel
+            .$isLoading
+            .receive(on: DispatchQueue.main)
+            .removeDuplicates().sink { [weak self] isLoading in
+                guard let self = self else { return }
+                if isLoading {
+                    activityIndicator.startAnimating()
+                } else {
+                    activityIndicator.stopAnimating()
+                }
+            }.store(in: &observers)
     }
     
-    private func updateMoviesSnapshot(movies: [Movie]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Movie>()
+    private func updateMoviesSnapshot(movies: [MovieCellViewModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MovieCellViewModel>()
         
         snapshot.appendSections([.main])
         snapshot.appendItems(movies)
@@ -76,9 +95,20 @@ class MoviesRootView: UIView {
 }
 
 extension MoviesRootView {
-    func configureCell(cell: MovieCell, with movie: Movie) {
-        cell.titleLabel.text = movie.title
-        cell.dateLabel.text = movie.date
+    func configureCell(cell: MovieCell, with viewModel: MovieCellViewModel) {
+        cell.titleLabel.text = viewModel.title
+        cell.dateLabel.text = viewModel.release_date
+        
+        // simple images cache
+        if let image = imageCache[viewModel.id] {
+            cell.imageView.image = image
+        } else {
+            Task {
+                guard let url = URL(string: viewModel.imagePath) else { return }
+                let image = try await cell.setImage(url: url)
+                self.imageCache[viewModel.id] = image
+            }
+        }
     }
 }
 
@@ -102,6 +132,18 @@ extension MoviesRootView {
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
+    }
+}
+
+extension MoviesRootView {
+    private func addActivityIndicator() {
+        addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
 }

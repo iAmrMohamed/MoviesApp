@@ -26,5 +26,9 @@ class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        rootView.setupViewModel(viewModel)
+        Task {
+            try await viewModel.loadMovieDetails()
+        }
     }
 }

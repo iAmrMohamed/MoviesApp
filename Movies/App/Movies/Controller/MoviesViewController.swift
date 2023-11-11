@@ -43,7 +43,7 @@ class MoviesViewController: UIViewController {
     
     private func setupViewModelBindings() {
         viewModel.movieSelectionHandler = { [weak self] movie in
-            self?.mainNavigation.showMovieDetails(movie: movie)
+            self?.mainNavigation.showMovieDetails(movieId: movie.id)
         }
     }
 }

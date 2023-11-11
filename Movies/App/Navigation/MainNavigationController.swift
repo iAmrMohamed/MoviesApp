@@ -16,8 +16,8 @@ class MainNavigationController: UINavigationController {
 }
 
 extension MainNavigationController: MovieSelectionResponder {
-    func showMovieDetails(movie: Movie) {
-        let details = appDependency.makeMovieDetailsViewController(movie: movie)
+    func showMovieDetails(movieId: Int) {
+        let details = appDependency.makeMovieDetailsViewController(movieId: movieId)
         pushViewController(details, animated: true)
     }
 }
